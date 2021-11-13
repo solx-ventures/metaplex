@@ -4,6 +4,7 @@ import Masonry from 'react-masonry-css';
 import { Link } from 'react-router-dom';
 import { ArtistCard } from '../../components/ArtistCard';
 import { useMeta } from '../../contexts';
+import userNames from '../../config/userNames.json';
 
 const { Content } = Layout;
 
@@ -32,10 +33,10 @@ export const ArtistsView = () => {
               key={id}
               artist={{
                 address: m.info.address,
-                name: m.info.name || '',
-                image: m.info.image || '',
-                link: m.info.twitter || '',
-                background: m.info.background || '',
+                name: userNames[m.info.address]?.name || '',
+                image: userNames[m.info.address]?.image || '',
+                link: userNames[m.info.address]?.twitter || '',
+                background: userNames[m.info.address]?.background || '',
               }}
             />
           </Link>

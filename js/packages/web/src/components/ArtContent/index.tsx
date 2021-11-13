@@ -26,20 +26,22 @@ const MeshArtContent = ({
     files && files.length > 0 && typeof files[0] === 'string'
       ? files[0]
       : animationUrl;
-  const { isLoading } = useCachedImage(renderURL || '', true);
+  // const { isLoading } = useCachedImage(renderURL || '', true);
 
-  if (isLoading) {
-    return (
-      <CachedImageContent
-        uri={uri}
-        className={className}
-        preview={false}
-        style={{ width: '100%', ...style }}
-      />
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <CachedImageContent
+  //       uri={uri}
+  //       className={className}
+  //       preview={false}
+  //       style={{ width: '100%', ...style }}
+  //     />
+  //   );
+  // }
 
-  return <MeshViewer url={renderURL} className={className} style={style} />;
+  return (
+    <MeshViewer url={renderURL} uri={uri} className={className} style={style} />
+  );
 };
 
 export const CachedImageContent = ({

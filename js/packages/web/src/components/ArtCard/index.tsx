@@ -5,6 +5,7 @@ import { ArtContent } from '../ArtContent';
 import { useArt } from '../../hooks';
 import { Artist, ArtType } from '../../types';
 import { MetaAvatar } from '../MetaAvatar';
+import userNames from '../../config/userNames.json';
 
 const { Meta } = Card;
 
@@ -52,6 +53,9 @@ export const ArtCard = (props: ArtCardProps) => {
   } = props;
   const art = useArt(pubkey);
   creators = art?.creators || creators || [];
+  if (creators.hasOwnProperty('image')) {
+    creators[0].image = userNames[creators[0]?.address!]?.image;
+  }
   name = art?.title || name || ' ';
 
   let badge = '';

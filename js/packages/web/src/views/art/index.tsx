@@ -21,6 +21,7 @@ import { sendSignMetadata } from '../../actions/sendSignMetadata';
 import { ViewOn } from '../../components/ViewOn';
 import { ArtType } from '../../types';
 import { ArtMinting } from '../../components/ArtMinting';
+import userNames from '../../config/userNames.json';
 
 const { Content } = Layout;
 
@@ -126,6 +127,13 @@ export const ArtView = () => {
                 <h6 style={{ marginTop: 5 }}>Created By</h6>
                 <div className="creators">
                   {(art.creators || []).map((creator, idx) => {
+                    if (
+                      creator.hasOwnProperty('name') &&
+                      creator.hasOwnProperty('image')
+                    ) {
+                      creator.name = userNames[creator?.address!]?.name;
+                      creator.image = userNames[creator?.address!]?.image;
+                    }
                     return (
                       <div
                         key={idx}

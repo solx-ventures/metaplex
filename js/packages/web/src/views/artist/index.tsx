@@ -4,10 +4,15 @@ import { Link, useParams } from 'react-router-dom';
 import { ArtCard } from '../../components/ArtCard';
 import { CardLoader } from '../../components/MyLoader';
 import { useCreator, useCreatorArts } from '../../hooks';
+import userNames from '../../config/userNames.json';
 
 export const ArtistView = () => {
   const { id } = useParams<{ id: string }>();
-  const creator = useCreator(id);
+  let creator = useCreator(id);
+  if (creator) {
+    creator.info.name = userNames[creator?.info.address].name;
+    creator.info.description = userNames[creator?.info.address].description;
+  }
   const artwork = useCreatorArts(id);
 
   const artworkGrid = (

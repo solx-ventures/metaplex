@@ -17,13 +17,13 @@ import { MobileNavbar } from '../MobileNavbar';
 const getDefaultLinkActions = (connected: boolean) => {
   return [
     <Link to={`/`} key={'explore'}>
-      <Button className="app-btn">Explore</Button>
+      <Button className="app-btn">Auctions</Button>
     </Link>,
     <Link to={`/artworks`} key={'artwork'}>
-      <Button className="app-btn">{connected ? 'My Items' : 'Artwork'}</Button>
+      <Button className="app-btn">{connected ? 'My NFTs' : 'NFTs'}</Button>
     </Link>,
     <Link to={`/artists`} key={'artists'}>
-      <Button className="app-btn">Creators</Button>
+      <Button className="app-btn">Series</Button>
     </Link>,
   ];
 };
@@ -51,7 +51,14 @@ export const MetaplexMenu = () => {
     return (
       <>
         <Modal
-          title={<img src={'/metaplex-logo.svg'} />}
+          title={
+            <a href="https://gamerplex.com">
+              <img
+                src={'/logo-header.png'}
+                style={{ height: 75, borderRadius: 16 }}
+              />
+            </a>
+          }
           visible={isModalVisible}
           footer={null}
           className={'modal-box'}
@@ -109,9 +116,9 @@ export const MetaplexMenu = () => {
 
 export const LogoLink = () => {
   return (
-    <Link to={`/`}>
-      <img src={'/metaplex-logo.svg'} />
-    </Link>
+    <a href="https://gamerplex.com" className="logoLink">
+      <img src={'/logo-header.png'} />
+    </a>
   );
 };
 

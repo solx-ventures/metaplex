@@ -40,7 +40,41 @@ export default class MetaplexDocument extends Document {
             href="/favicon-16x16.png"
           />
           <meta name="theme-color" content="#000000" />
-          <meta name="description" content="Metaplex NFT Marketplace" />
+          <meta
+            name="description"
+            content="We are helping build out the Solana Gaming Metaverse by providing gamer services at https://gamerplex.com."
+          />
+          <meta property="og:url" content="https://gamerplex.com/" />
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content="Gamerplex - Store" />
+          <meta
+            property="og:description"
+            content="We are helping build out the Solana Gaming Metaverse by providing gamer services at https://gamerplex.com."
+          />
+          <meta
+            property="og:image"
+            itemProp="image"
+            content="https://store.gamerplex.com/og-image.jpeg"
+          />
+          <meta
+            property="og:image:secure_url"
+            content="https://store.gamerplex.com/og-image.jpeg"
+          />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content="@gamerplex_com" />
+          <meta name="twitter:creator" content="@gamerplex_com" />
+          <meta name="twitter:url" content="https://gamerplex.com/" />
+          <meta name="twitter:title" content="Gamerplex - Store" />
+          <meta
+            name="twitter:description"
+            content="We are helping build out the Solana Gaming Metaverse by providing gamer services at https://gamerplex.com."
+          />
+          <meta
+            name="twitter:image"
+            content="https://store.gamerplex.com/og-image.jpeg"
+          />
           <link rel="manifest" href="/manifest.json" />
           <link
             rel="stylesheet"

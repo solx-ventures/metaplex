@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { useMeta } from '../contexts';
 import { Artist } from '../types';
 import { AuctionView } from './useAuctions';
+import userNames from '../config/userNames.json';
 
 export const useCreators = (auction?: AuctionView) => {
   const { whitelistedCreatorsByCreator } = useMeta();
