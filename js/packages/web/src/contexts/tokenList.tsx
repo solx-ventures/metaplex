@@ -5,6 +5,8 @@ import {
   TokenListProvider,
 } from "@solana/spl-token-registry";
 import { WRAPPED_SOL_MINT } from '@project-serum/serum/lib/token-instructions';
+import { useWallet } from '@solana/wallet-adapter-react';
+import * as userNames from '../config/userNames.json';
 
 // Tag in the spl-token-registry for sollet wrapped tokens.
 export const SPL_REGISTRY_SOLLET_TAG = "wrapped-sollet";
@@ -40,7 +42,9 @@ export function SPLTokenListProvider({ children = null as any }) {
     new TokenListProvider().resolve().then(setTokenList);
   }, [setTokenList]);
 
-  const hasOtherTokens = !!process.env.NEXT_SPL_TOKEN_MINTS;
+  const wallet = useWallet();
+  const walletPubkey = wallet.publicKey?.toString() || '';
+  const hasOtherTokens = userNames[walletPubkey] && !!process.env.NEXT_SPL_TOKEN_MINTS;
 
   // Added tokenList to know in which currency the auction is (SOL or other SPL)
   const mainnetTokens = tokenList?tokenList.filterByClusterSlug("mainnet-beta").getList().filter(f=> subscribedTokenMints.some(s=> s == f.address) )
